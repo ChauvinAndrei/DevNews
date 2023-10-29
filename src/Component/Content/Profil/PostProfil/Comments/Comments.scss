@@ -1,0 +1,238 @@
+@use '../../../../../Styles/variables.scss' as v;
+
+
+.Profil--Message-wrapperResponse-contain{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    will-change: max-height;
+    transition: max-height 500ms ease-in-out;
+
+    &.active {
+        max-height: none; 
+    }
+
+        .Profil--Message-wrapperResponse{
+            position: relative;
+            display: flex;
+            padding-block: v.$gutter-medium .5rem;
+
+            hr{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border: 0;
+                margin-inline: calc(v.$widthIcon + 1.5rem) v.$gutter-medium;
+                border-bottom: 1px solid rgb(240, 240, 240);
+                display: none;
+            }
+
+
+            .Profil--Message-userinfo-hour{
+                display: inline-block;
+                font-size: 0.8rem;
+                font-variant: all-small-caps proportional-nums;
+                color: rgb(184, 184, 184);
+            }
+         
+            .Profil--Message-userinfo{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                // height: calc(100% - 19px);
+                // margin-top: 1rem;
+                // justify-content: center;
+                // width: v.$widthIcon;
+
+                span{
+                    display: none;
+                    justify-content: center;
+                    align-self: center;
+                    width: v.$widthIcon;
+                    margin-left: v.$gutter-medium;
+
+                    svg{
+                        display: block;
+                        width: 18px;
+                        height: auto;
+                        padding: 8px;
+                        border-radius: 50%;
+                        box-shadow: 0 0 5px 1px rgba(229, 244, 255, 0.377) inset, 0 0 5px 2px rgba(4, 139, 250, 0.041) inset;
+                        color: v.$color--text--primary;
+                    }
+                }
+
+                .Profil--Message-boxmessage-text{
+                    font-size: 0.875rem;
+                    box-sizing: border-box;
+                    margin-inline: 1rem;
+                    margin-block: 1rem;
+                    padding: v.$gutter-medium 1.6rem v.$gutter-medium v.$gutter-medium;
+                    background-color: rgb(248, 253, 255);
+                    color: rgb(43, 43, 43);
+                    border-radius: 10px;
+                    word-break: break-word;
+                    line-height: 1.3rem;
+                    width: 100%;
+                }
+        
+            }
+        
+            .Profil--Message-boxmessage{
+                    width: 100%;
+
+                    &-info{
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: baseline;
+                        column-gap: .5rem;
+                        row-gap: 5px;
+                        // flex-wrap: wrap;
+                        // align-items: center;
+                        margin-inline: auto;
+                        width: calc(100% - (v.$widthIcon));
+                        // box-sizing: border-box;
+
+                    }
+
+                    &-username{
+                        display: inline-block;
+                        gap: .5rem;
+                        font-size: 0.875rem;
+                        font-weight: bolder;
+                        width: fit-content;
+                    }
+
+                    &-hastag{
+                        display: inline-block;
+                        // width: fit-content;
+                        margin-right: auto;
+                        font-size: .75rem;
+                        font-variant: all-small-caps;
+                        color: rgb(184, 184, 184);
+                    }
+
+            }
+        }
+
+        &-btnMore_comment{
+            cursor: pointer;
+            pointer-events: all;
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            outline: 0;
+            border: 0;
+            // border: 1px solid transparent;
+            font-size: .7rem;
+            background: transparent;
+            // border-top: 1px solid rgb(213, 224, 241);
+            background-color: transparent;
+            font-variant: small-caps;
+            color: v.$color--text--primary;
+            transition: background-color 200ms ease-in;
+
+             
+                &::after{
+                    content: '>';
+                    display: block;
+                    position: absolute;
+                    font-family: monospace;
+                    font-size: 1rem;
+                    right: calc(50% - 3rem); 
+                    top: -2px;
+                    opacity: 0;
+                    transform: translateX(-50%) rotate(90deg); 
+                    transition: opacity 100ms ease;
+                }
+
+                &:hover{
+                    background-color: #62cdff17;
+                    &::after{
+                       opacity: 1;
+                    }
+                }
+    
+                &:active{
+                    background-color: transparent;
+                    border: 1px solid transparent;
+                }
+        }
+}
+
+
+.Profil--Message-wrapperResponse:nth-of-type(n+1)::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: calc( 100% - (v.$widthIcon + 3.5rem));
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    margin-inline-start: calc(v.$widthIcon + 1.5rem);
+    border-top: 1px solid rgb(240, 240, 240);  
+}
+
+.Profil--Message-wrapperResponse:last-of-type:before{
+    border: 0;
+}
+
+
+@media screen and (min-width: 470px) {
+
+    .Profil--Message-wrapperResponse-contain{
+
+    
+    
+            .Profil--Message-wrapperResponse{
+    
+
+                .Profil--Message-userinfo-hour{
+                    padding-inline-end: 1.5rem;
+                }
+             
+                .Profil--Message-userinfo{
+
+    
+                    span{
+                        display: flex;
+                        svg{
+
+                        }
+                    }
+    
+                    .Profil--Message-boxmessage-text{
+ 
+                    }
+                }
+
+                .Profil--Message-boxmessage{
+
+                    &-info{
+                        margin-inline: inherit;
+                        margin-left: auto;
+                        width: calc(100% - (v.$widthIcon + 2rem));  
+                    }
+        
+                    &-username{
+        
+                    }
+        
+                    &-hastag{
+        
+                    }
+        
+                }
+
+            }
+        
+    }    
+
+}

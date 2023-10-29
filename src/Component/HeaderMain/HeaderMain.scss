@@ -1,0 +1,71 @@
+@use '../../Styles/variables.scss' as v;
+
+.header--wrapper{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    min-width: 100vw;
+    height: v.$headerHeight;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: white;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+    box-shadow: 0 -5px 5px 5px rgba(3, 25, 37, 0.155),
+    0 0 20px 10px rgba(4, 139, 250, 0.041); 
+    transform: translateY(0);
+    transition: transform 200ms ease;
+    z-index: 9995;
+
+
+    &.messageactive{
+        transform: translateY(- v.$headerHeight);
+    }
+
+    @media (max-width: 470px){
+        height: v.$headerHeightMobile;
+    }
+
+    &-div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-inline: auto;
+        width: calc(100% - 10vw);
+        max-width: 1300px;
+
+        .header--logo{
+           display: flex;
+           align-items: center;
+           padding-inline: .3em;
+
+
+            h1{
+                margin: 0;
+                font-size: 1.5em;
+                white-space: nowrap;
+            }
+
+            img{
+                display: block;
+                // height: 80px;
+                // height: calc(v.$headerHeight - v.$gutter-medium);
+                max-width: 100%;
+
+                @media (max-width: 470px){
+                    max-height: 60px;
+                }    
+            }
+        }
+        
+        .header--links{
+            padding-inline: v.$gutter-medium;
+            span{
+                color: rgb(98, 205, 255);
+            }
+        }
+    }
+}
+

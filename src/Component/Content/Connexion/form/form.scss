@@ -1,0 +1,125 @@
+@use '../../../../Styles/variables.scss' as v;
+
+.form--wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: v.$gutter-medium;
+    font-size: 1.2rem;
+
+    .form--login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        gap: v.$gutter-medium;
+        width: 100%;
+    
+        .form-controls {
+            display: block;
+            width: calc(100% - 7vw);
+            box-sizing: border-box;
+            
+            button {
+                cursor: pointer;
+                pointer-events: all;
+                border: 0;
+                background-color: v.$color--text--primary;
+                height: v.$heightInput;
+                width: 100%;
+                color: v.$color-primary;
+                border-radius: 15px;
+            }
+
+            a {
+                position: relative;
+                top: calc(v.$gutter-medium - 2px);
+                text-align: center;
+                display: block;
+                color: #62CDFF;
+                font-size: 14px;
+
+                &:hover{
+                    color: v.$color-textHover;
+                }
+
+                
+            }
+        }
+        
+        label {
+            color: v.$color--text--primary;
+            text-transform: uppercase;
+            font-size: .8rem;
+        }
+
+        input{
+            display: block;
+            padding-inline: v.$gutter-medium;
+            border-radius: 15px;
+            border: 1px solid rgb(241, 246, 252);
+            outline: 0;
+            height: v.$heightInput;
+            box-shadow: 0 0 5px 1px rgba(229, 244, 255, 0.377) inset, 0 0 5px 2px rgba(4, 139, 250, 0.041) inset;
+
+            &::placeholder{
+                color:rgb(184, 184, 184);
+                opacity: 1;
+                font-size: .8rem;
+                transition: opacity 300ms ease-out;
+            }
+            &:focus{
+                border: 1px solid v.$color--text--primary;
+
+                &::placeholder{
+                    opacity: 0;
+                }
+            }
+        }
+
+        &-user,
+        &-password {
+          width: 100%;
+          box-sizing: border-box;
+           input{
+            width: 100%;
+            box-sizing: border-box;
+           }
+        }
+
+        .notification {
+            position: absolute; 
+            // top: v.$gutter-medium * 2;
+            // right: 0;
+            top: 0;
+            right: 0;
+            left: inherit;
+            bottom: inherit;
+            font-size: 1rem;
+            text-align: center;
+            padding: .5rem v.$gutter-medium;
+            border-radius: 8px;
+            color: white;
+            box-shadow: 0 4px 5px 1px rgba(71, 172, 226, 0.073);
+            background-color: #62cdffbd;
+            width: fit-content;
+            opacity: 0;
+            transform: translateY(v.$gutter-medium * 2);
+            animation: animated 500ms ease both;
+            font-variant: small-caps;
+            z-index: 1000;   
+        }   
+    
+            &.error {
+                background-color: #ff000059;
+                color: #ff0000;
+                font-weight: bold;
+            }      
+            
+            &.success {
+                transform: translateY(0);
+                background-color: v.$color--text--primary;
+            }
+    }
+}

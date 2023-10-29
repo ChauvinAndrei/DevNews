@@ -1,0 +1,50 @@
+@use '../../../Styles/variables.scss' as v;
+
+
+.wrapper--single_article {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin-inline: auto;
+
+    .wrapper-btn{
+        height: v.$heightInput;
+
+        button{
+            position: sticky;
+            top: calc(v.$heightInput + (v.$gutter-medium * 2));
+            left: 0;
+            background: none;
+            outline: 0;
+            border: 0;
+            color: v.$color--text--primary;
+            cursor: pointer;
+            pointer-events: all;
+            transition: color 200ms ease;
+
+            &:hover{
+                color: v.$color-textHover;
+            }
+        }
+    }
+
+    .wrapper--content-article_comment{
+        display: flex;
+        flex-direction: column;
+        gap: v.$gutter-medium;
+        padding-block: v.$gutter-medium;
+    }
+}
+
+@media screen and (min-width: 900px){
+
+    .wrapper--single_article{
+        max-width: none;
+        .wrapper--content-article_comment{
+            display: flex;
+            flex-direction: row;
+        }
+
+    }
+
+}

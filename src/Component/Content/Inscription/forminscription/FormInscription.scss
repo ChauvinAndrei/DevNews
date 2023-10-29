@@ -1,0 +1,84 @@
+
+@use '../../../../Styles/variables.scss' as v;
+
+.form--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  
+
+  .form--login {
+      width: 100%;
+      max-width: 500px; 
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(3, 25, 37, 0.1), 0 0 20px 10px rgba(4, 139, 250, 0.041);
+
+
+     .error-message{
+          font-size: 1rem;
+          background-color: #ff000059;
+          color: red;
+          border-radius: 5px;
+          padding-inline: 15px;
+          padding-block: 5px;
+      }
+
+      
+      // .password-error-popup {
+      //   position: absolute;
+      //   top: 20px;
+      //   background-color: #ff000059;
+      //   color: white;
+      //   padding: 5px;
+      //   border-radius: 4px;
+      //   font-size: .8rem;
+      //   z-index: 1000;
+      // }
+
+      &-field{
+        width: 100%;
+        box-sizing: border-box;
+         input{
+            width: 100%;
+            box-sizing: border-box;
+         }
+      }
+  }
+
+  
+    .notification {
+      position: absolute; 
+      top: v.$gutter-medium * 2;
+      right: 5vw;
+      font-size: 1rem;
+      text-align: center;
+      padding: .5rem v.$gutter-medium;
+      border-radius: 8px;
+      color: white;
+      box-shadow: 0 4px 5px 1px rgba(71, 172, 226, 0.073);
+      background-color: #62cdffbd;
+      opacity: 0;
+      transform: translateY(v.$gutter-medium * 2);
+      animation: animated 500ms ease both;
+      font-variant: small-caps;
+      z-index: 1000;
+    
+    
+      &.error {
+        background-color: #ffcccc;
+        color: #ff0000;
+      }
+
+      &.success {
+        transform: translateY(0);
+        background-color: v.$color--text--primary;
+      }
+  }
+
+
+}
+
+

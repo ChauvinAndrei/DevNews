@@ -1,0 +1,54 @@
+@use '../../Styles/variables.scss' as v;
+
+$image-TICKET: '../../Assets/ticket.svg';
+$image-TICKETBIG: '../../Assets/ticketbig.svg';
+
+
+.widgetPopulaire--wrapper,
+.widgetMessage--wrapper{
+
+    .widget--title{
+        background-image: url($image-TICKETBIG);
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-top-right-radius: 25px;
+        padding-inline-start: 15px;
+        padding-block: 2px;
+        text-align: center;
+        width: 60%;
+        // background-color: white;
+        box-shadow: 0 0 8px 1px rgba(166, 173, 177, 0.199);
+        clip-path: polygon(0% -20%, 105% -20%, 100% 100%, 0% 100%);
+
+        h3{
+            font-size: .915rem;
+            color: v.$color--text--primary;
+            // line-height: 1.1rem;
+            margin: 0;
+        }
+    }
+
+    .widgetPopulaire--content{
+        min-height: 375px;
+        max-height: 380px;
+        justify-content: center;
+    }
+
+    .widgetMessage--content{
+        height: 280px;
+        clip-path: polygon(-5% -30%, 120% -5%, 120% 120%, -5% 120%);
+    }
+
+    .widgetPopulaire--content,
+    .widgetMessage--content{
+        display: flex;
+        background-color: #ffffff;
+        box-shadow: 0 0 8px 1px rgba(166, 173, 177, 0.199);
+    }
+
+    .widgetMessage--content{
+        display: block;
+    }
+}
+
+

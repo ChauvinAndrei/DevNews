@@ -1,0 +1,180 @@
+@use '../../Styles/variables.scss' as v;
+
+$image-TICKETBIG: '../../Assets/ticketbig.svg';
+
+.slider--wrapper{
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 9999;
+
+
+    .splide__arrows button{
+        // background-color: rgba(255, 255, 255, 0.664);
+        // opacity: 1;
+        background-color: rgb(243, 249, 255);
+        box-shadow: 0 0 5px 1px rgba(166, 173, 177, 0.199);
+        // border-radius: 5px;
+        svg{
+            color: v.$color--text--primary;
+            // fill: v.$color--text--primary;
+        }
+    }
+
+    .splide__slide{
+        box-sizing: border-box;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        max-width: 280px;
+
+
+        .slider-out-icon{
+            color: v.$color--text--primary;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.055);
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.116);
+            border-bottom-left-radius: 15px;
+            opacity: 0;
+            transition: opacity 200ms ease;
+            z-index: 500;
+        }
+
+        a{
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.048) 80%, rgba(0, 0, 0, 0.397) 100%);
+        }
+
+        .slider-like{
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: .8rem;
+            color: v.$color--text--primary;
+            line-height:20px;
+            padding: 10px;
+            border-bottom-left-radius: 15px;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.116);
+            font-weight: bolder;
+
+            svg{
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        .title--slider{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            color: white;
+            text-shadow: 0 2px 2px rgb(0 0 0 / 27%);
+            max-height: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            backdrop-filter: blur(2px);
+            background-color: rgba(75, 91, 102, 0.27);
+            clip-path: polygon(0% -20%, 100% -20%, 100% 100%, 0% 100%);
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.23);
+
+            h3{
+                margin: 0;
+                font-size: 1.4rem;
+                border-radius: 10px;
+                line-height: 1.75rem;
+                padding-inline: v.$gutter-medium;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+            }
+
+            .wrapper-slider-content{
+                padding-inline: v.$gutter-medium;
+                line-height: 1.55rem;
+                padding-top: .25rem;
+                padding-bottom: .25rem;
+
+                .slider-content{
+                    cursor: pointer;
+                    position: relative;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: .8rem;
+                    color: white;
+                    line-height: 1rem;
+                    // margin-bottom: -.10rem;
+                    transition: text-decoration 300ms ease;
+    
+                    &-hastag{
+                        font-size: .75rem;
+                        font-weight: bolder;
+                        font-variant: all-small-caps proportional-nums;
+                        color: v.$color--text--primary;
+                    }
+
+                    &-more{
+                        font-size: .75rem;
+                        color: rgba(255, 255, 255, 0.795);
+                    }
+                }
+            }
+
+        }
+
+
+        
+        img{
+            border-radius: 5px;
+            transform: translate3d(0,0,0);
+            // clip-path: polygon(0 0, 100% 0, 100% 78%, 0 78%, 0 45%);
+            transition: filter 200ms ease;
+        }
+
+        &:hover{
+
+            img{
+                filter: brightness(1.03);
+            }
+
+            .slider-out-icon{
+                opacity: 1;
+            }
+
+           .slider-content{
+            text-decoration: underline;
+           }
+        }
+
+    }
+
+    .splide__arrow{
+        background-color: rgb(185, 185, 185);
+
+        svg{
+            color: v.$color--text--primary;
+        }
+    }
+
+    img{
+        height: 100%;
+        max-width: auto;
+        object-fit: cover;
+    }
+}
+

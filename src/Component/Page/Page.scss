@@ -1,0 +1,232 @@
+@use '../../Styles/variables.scss' as v;
+
+.main--wrapper{
+    overflow: visible;
+    border-left: 1px solid rgb(213, 224, 241);
+    // padding-block-end: calc(v.$titleStickyHeight + v.$gutter-medium);
+    padding-block-end: v.$gutter-medium;
+    width: 100%;
+    opacity: 0;
+    animation: animateCurrentPage 500ms ease both;
+
+
+    &--div{
+        padding-inline: 1.5vw;
+        padding-block-start: v.$gutter-medium;
+
+        @media screen and (min-width: 1120px){
+            padding-inline: v.$gutter-medium .5em;
+        }
+
+            &-inner{
+                display: block;
+                
+                .main-content{
+                    width: 100%;
+                }
+
+                &.Home{
+                    display: grid;
+                    grid-template-columns: 1fr auto;
+                    row-gap: v.$gutter-medium;
+                }
+                
+
+                #WidgetMessage{
+                    position: fixed;
+                    top: calc((v.$headerHeight + v.$titleStickyHeight + v.$navMovileHeight + 4.33rem));
+                    right: 0;
+                    height: calc(100vh - ((v.$headerHeight + v.$titleStickyHeight + v.$navMovileHeight + 8.33rem)));  
+                    min-width: 300px;
+                    margin-top: 5.5em;
+                    z-index: 9999;
+
+
+                    @media (max-width: 470px){
+                        top: calc((v.$headerHeightMobile + v.$titleStickyHeight + v.$navMovileHeight + 4.33rem));
+                        height: calc(100vh - ((v.$headerHeightMobile + v.$titleStickyHeight + v.$navMovileHeight + 8.33rem)));  
+                    }
+
+                    @media (min-width: 824px){
+                        position: sticky;
+                        top: calc((v.$headerHeight + v.$titleStickyHeight + v.$navMovileHeight + 4.33rem));
+                        right: 0;
+                        height: calc(100vh - ((v.$headerHeight + v.$titleStickyHeight + v.$navMovileHeight + 8.33rem)));  
+                    }
+                    @media (min-width: 1120px){
+                        top: calc((v.$headerHeight + v.$titleStickyHeight + 5.33rem));
+                        height: calc(100vh - ((v.$headerHeight + v.$titleStickyHeight + 7.33rem)));  
+                    }
+                }
+
+                &.Forum{
+                    display: flex;
+                    flex-flow: row-reverse;
+                    gap: 1rem;
+                    // padding-block: 1rem;
+                        .duContenu{
+                            padding-block-start: 1rem;
+
+                            @media screen and (min-width: 1120px){
+                                padding-block-start: 2rem;
+                            }
+                        }
+                }
+
+                .sliderHome{
+                    padding-block: 1rem;
+                    grid-column: span 2;
+                    min-height: 200px;
+                    border-bottom: 1px solid rgb(213, 224, 241);
+                    clip-path: polygon(.1% 0%, 99.9% 0%, 99.9% 100%, .1% 100%);
+                    z-index: 100;
+                }
+
+                .widget-populaire{
+                    display: none;
+                    grid-column: 2 / span 1; 
+                    position: sticky;
+                    top: calc((v.$headerHeight + v.$titleStickyHeight));
+                    right: 0;
+                    height: calc(100vh - ((v.$headerHeight + v.$titleStickyHeight + v.$navMovileHeight) + 1rem));  
+                    min-width: 300px;
+                    margin-top: calc(v.$titleStickyHeight - 1rem);
+
+                    // @media (max-width: 470px){
+                    //     top: calc((v.$headerHeightMobile + v.$titleStickyHeight) + 1px);
+                    //     height: calc(100vh - ((v.$headerHeightMobile + v.$titleStickyHeight + v.$navMovileHeight) + 1rem)); 
+                    // }
+                }
+
+                .grid-content:nth-child(3){
+                    grid-column: span 2; 
+                    grid-row: 2 / span 1; 
+                    margin-top: - v.$gutter-medium;
+                }
+                
+
+                .menu--title{
+                    position: sticky;
+                    top: v.$headerHeight; 
+                    left: 0;
+                    color: v.$color--text--primary;
+                    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.116);
+                    font-weight: bold;
+                    font-size: 1.2em;
+                    opacity: 0;
+                    text-align: start;
+                    margin: 0;
+                    height: v.$titleStickyHeight;
+                    line-height: v.$titleStickyHeight;
+                    backdrop-filter: blur(2px);
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
+                    border-bottom: 1px solid rgb(213, 224, 241);
+                    width: 100%;
+                    transform: rotateX(-45deg);
+                    animation: animateCurrentTitle 500ms ease forwards;
+                    transition-delay: 200ms, 200ms;
+                    z-index: 800;
+
+                    @media (max-width: 470px){
+                        top: v.$headerHeightMobile; 
+                    }
+                }
+
+                .duContenu{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    box-sizing: border-box;
+                    // padding-bottom: calc((v.$navMovileHeight / 2) + var(--addressBar));
+
+                    @media screen and (min-width: 1120px){
+                        // padding-bottom: v.$gutter-medium;
+                    }
+
+                    &::before{
+                        content: "";
+                        position: sticky;
+                        margin-top: calc(-1 * (v.$titleStickyHeight + 3rem));
+                        top:v.$headerHeight;
+                        left:0;
+                        right: 0;
+                        display: block;
+                        height: calc(v.$titleStickyHeight + 3rem);
+                        width: 100%;
+                        background: linear-gradient(to bottom, white 50%, rgba(255, 255, 255, 0.219) 100%, transparent);
+
+                        
+                            @media (max-width: 470px){
+                                top: v.$headerHeightMobile;
+                            }
+
+                    }
+                        p{
+                            text-align: left;
+                        }
+                }
+            }
+    }
+}
+
+
+@media (min-width: 960px) {
+  
+    #WidgetPopulaire{
+        display: block;
+    }
+    .main--wrapper{
+        &--div{
+
+            &-inner{
+                gap: v.$gutter-medium;
+                .grid-content:nth-child(3) {
+                    grid-column: span 1; 
+                    max-width: none;
+                }
+            }
+        }
+    }
+
+}
+
+@media (min-width: 1080px) {
+  
+    .main--wrapper{
+        padding-block-end: 0;
+    }
+    
+    .duContenu{
+        padding-block: v.$gutter-medium;
+    }
+
+    #WidgetPopulaire{
+        top: calc((v.$headerHeight + v.$titleStickyHeight) + 1px);
+        height: calc(100vh - (v.$headerHeight + v.$titleStickyHeight + 1rem));
+    }  
+    
+}
+
+
+
+
+@keyframes animateCurrentTitle {
+    from{
+        opacity: 0;
+        transform: rotateX(-45deg);
+    }
+  
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+@keyframes animateCurrentPage {
+    from{
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+}

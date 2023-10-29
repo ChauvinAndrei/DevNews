@@ -1,0 +1,39 @@
+
+
+
+.content--article-wrapper-contenu-img-likebox{
+    // opacity: 0;
+    animation: fadeIn 200ms ease forwards;
+}
+
+
+.content--article-wrapper-contenu-img-likebox-btn{
+    &.animate{
+        .content--article-wrapper-contenu-img-likebox-like svg{
+            animation: likeshake 300ms ease-in;
+        }
+    }
+}
+
+@keyframes likeshake {
+    0%{
+        transform: scale(1.1);
+    }
+    
+    50%{
+        transform: scale(0.9);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

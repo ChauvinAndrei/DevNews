@@ -1,0 +1,52 @@
+@use '/src/Styles/variables.scss' as v;
+
+.App {
+
+    .app--container{
+      position: relative;
+      display: flex;
+      margin-inline: auto;
+      max-width: 1200px;
+      padding-block-start: v.$headerHeight;
+      padding-block-end: calc(v.$navMovileHeight +  env(safe-area-inset-bottom));
+
+      @media (max-width: 470px){
+        padding-block-start: v.$headerHeightMobile;
+      }
+      @media (min-width: 1120px){
+        padding-block-end: 0;
+      }
+    }
+}
+
+.simplebar-scrollbar::before {
+  background-color: v.$color--text--primary; 
+  border-radius: 6px; 
+}
+
+
+.simplebar-scrollbar::after {
+  background-color: v.$color--text--primary;
+  border-radius: 6px; 
+}
+
+.simplebar-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 5px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  background-color: rgb(98, 205, 255);
+}

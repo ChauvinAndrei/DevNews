@@ -1,0 +1,39 @@
+
+@use '../../../../Styles/variables.scss' as v;
+
+.posts-content {
+    box-shadow: 0 2px 2px 1px rgba(3, 25, 37, 0.020) inset, 0 0 5px 5px rgba(4, 139, 250, 0.041) inset;
+    width: 100%;
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: v.$gutter-medium;
+        gap: v.$gutter-medium;
+    }
+
+    .post--wrapper{
+            // opacity: 0;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 1rem;
+            width: 100%;
+            // margin-inline: 2vw;
+            // transition: opacity 200ms ease-in;
+                
+            .line-separate-post{
+                width: calc(100% - 5rem);
+                border: 0;
+                margin: 0;
+                margin-inline: auto;
+                border-bottom: 1px solid rgb(213, 224, 241);
+                border: 0;
+            
+                &:last-child{
+                    border: 0;
+                }
+            } 
+    }
+    
+}

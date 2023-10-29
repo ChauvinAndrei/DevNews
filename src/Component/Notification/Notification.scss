@@ -1,0 +1,61 @@
+@use '../../Styles/variables.scss' as v;
+
+
+.bubble-message{
+    position: absolute;
+    top: calc(-1 * (1rem + .5rem));
+    background-color: #62cdffd0;
+    padding: 2px 5px;
+    line-height: 1.3;
+    width: fit-content;
+    font-size: .75rem;
+    color: white;
+    border-radius: 5px;
+    font-variant: small-caps;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: bottom;
+    z-index: 9999;
+
+    &.fadeIn {
+        transform: translateY(v.$gutter-medium);
+        visibility: visible; 
+        opacity: 1;    
+        animation: animated 300ms ease both   ;
+      }
+    
+      &.fadeOut {
+        visibility: hidden;  
+        opacity: 0;   
+        animation: fadeOut 300ms ease both   ;
+      }
+
+      @keyframes animated {
+
+        from{
+          transform: translateY(v.$gutter-medium);
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        to{
+          transform: translateY(0);
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        from{
+            opacity: 1;
+            visibility: visible;
+        }
+
+        to{
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+}
+
